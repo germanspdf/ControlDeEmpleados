@@ -1,1 +1,2 @@
 # ControlDeEmpleados
+Readme inicial
