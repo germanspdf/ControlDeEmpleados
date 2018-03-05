@@ -1,2 +1,5 @@
 # ControlDeEmpleados
-Readme inicial
+
+Comprobando cambios
+Cambios completados
+
