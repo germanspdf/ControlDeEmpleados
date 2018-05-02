@@ -54,9 +54,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         icono1_lbl6 = new javax.swing.JLabel();
         titulo_panel = new javax.swing.JPanel();
         titulo_lbl7 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        opcionActual_panel = new javax.swing.JPanel();
+        opcionActual_label = new javax.swing.JLabel();
         contenido_panel = new javax.swing.JPanel();
         tablaExpediente_panel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         formaAlta_panel = new javax.swing.JPanel();
         formaBaja_panel = new javax.swing.JPanel();
         mostrarPlazas_panel = new javax.swing.JPanel();
@@ -64,7 +67,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         setSize(new java.awt.Dimension(1000, 600));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -148,6 +150,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         darDeBaja_panel.setBackground(new java.awt.Color(29, 175, 140));
         darDeBaja_panel.setPreferredSize(new java.awt.Dimension(288, 49));
+        darDeBaja_panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                darDeBaja_panelMouseClicked(evt);
+            }
+        });
 
         titulo_lbl4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         titulo_lbl4.setForeground(new java.awt.Color(255, 255, 255));
@@ -179,6 +186,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         plazas_panel.setBackground(new java.awt.Color(29, 175, 140));
         plazas_panel.setPreferredSize(new java.awt.Dimension(288, 49));
+        plazas_panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                plazas_panelMouseClicked(evt);
+            }
+        });
 
         titulo_lbl3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         titulo_lbl3.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,6 +222,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         calcularPresupuesto_panel.setBackground(new java.awt.Color(29, 175, 140));
         calcularPresupuesto_panel.setPreferredSize(new java.awt.Dimension(288, 49));
+        calcularPresupuesto_panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                calcularPresupuesto_panelMouseClicked(evt);
+            }
+        });
 
         titulo_lbl6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         titulo_lbl6.setForeground(new java.awt.Color(255, 255, 255));
@@ -292,18 +309,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(187, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(128, 214, 193));
-        jPanel1.setPreferredSize(new java.awt.Dimension(700, 100));
+        opcionActual_panel.setBackground(new java.awt.Color(128, 214, 193));
+        opcionActual_panel.setPreferredSize(new java.awt.Dimension(700, 100));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+        opcionActual_label.setFont(new java.awt.Font("Berlin Sans FB", 1, 26)); // NOI18N
+        opcionActual_label.setForeground(new java.awt.Color(240, 240, 240));
+
+        javax.swing.GroupLayout opcionActual_panelLayout = new javax.swing.GroupLayout(opcionActual_panel);
+        opcionActual_panel.setLayout(opcionActual_panelLayout);
+        opcionActual_panelLayout.setHorizontalGroup(
+            opcionActual_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, opcionActual_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(opcionActual_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        opcionActual_panelLayout.setVerticalGroup(
+            opcionActual_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(opcionActual_panelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(opcionActual_label, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         tablaExpediente_panel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -312,15 +338,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout tablaExpediente_panelLayout = new javax.swing.GroupLayout(tablaExpediente_panel);
         tablaExpediente_panel.setLayout(tablaExpediente_panelLayout);
         tablaExpediente_panelLayout.setHorizontalGroup(
             tablaExpediente_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
         );
         tablaExpediente_panelLayout.setVerticalGroup(
             tablaExpediente_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 444, Short.MAX_VALUE)
+            .addGroup(tablaExpediente_panelLayout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         formaAlta_panel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -407,7 +448,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(bg_panelLayout.createSequentialGroup()
                 .addComponent(menu_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(bg_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
+                    .addComponent(opcionActual_panel, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
                     .addComponent(contenido_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         bg_panelLayout.setVerticalGroup(
@@ -415,7 +456,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addComponent(menu_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(bg_panelLayout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(opcionActual_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(contenido_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -439,7 +480,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         noVisible();
         tablaExpediente_panel.setVisible(true);
         tablaExpediente_panel.setBackground(Color.red);
-                
+        opcionActual_label.setText("Consulta de Expediente");        
     }//GEN-LAST:event_expediente_panelMouseClicked
 
     private void darDeAlta_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_darDeAlta_panelMouseClicked
@@ -447,6 +488,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         noVisible();
         formaAlta_panel.setVisible(true);
         formaAlta_panel.setBackground(Color.green);
+        opcionActual_label.setText("Formato de Alta");
     }//GEN-LAST:event_darDeAlta_panelMouseClicked
 
     private void tablaExpediente_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaExpediente_panelMouseClicked
@@ -462,6 +504,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_formMouseClicked
+
+    private void darDeBaja_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_darDeBaja_panelMouseClicked
+        // TODO add your handling code here:
+        opcionActual_label.setText("Dar de Baja a ____________");
+    }//GEN-LAST:event_darDeBaja_panelMouseClicked
+
+    private void plazas_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_plazas_panelMouseClicked
+        // TODO add your handling code here:
+        opcionActual_label.setText("Plazas Disponibles");
+    }//GEN-LAST:event_plazas_panelMouseClicked
+
+    private void calcularPresupuesto_panelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcularPresupuesto_panelMouseClicked
+        // TODO add your handling code here:
+        opcionActual_label.setText("Presupuesto disponible para contratacion");
+    }//GEN-LAST:event_calcularPresupuesto_panelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -509,10 +566,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel icono1_lbl4;
     private javax.swing.JLabel icono1_lbl6;
     private javax.swing.JLabel icono2_lbl;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel menu_panel;
     private javax.swing.JPanel mostrarPlazas_panel;
     private javax.swing.JPanel mostrarPresupuesto_panel;
+    private javax.swing.JLabel opcionActual_label;
+    private javax.swing.JPanel opcionActual_panel;
     private javax.swing.JPanel plazas_panel;
     private javax.swing.JPanel tablaExpediente_panel;
     private javax.swing.JLabel titulo1_lbl;
