@@ -555,7 +555,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void tablaEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaEmpleadosMouseClicked
         
-        //System.out.println(tablaEmpleados.rowAtPoint(evt.getPoint()));
+        //System.out.println(tablaEmpleados.columnAtPoint(evt.getPoint()));
         int row = tablaEmpleados.getSelectedRow();
         int col = 0;
         rfc = tablaEmpleados.getModel().getValueAt(row, col)+"";
